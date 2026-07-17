@@ -3,90 +3,128 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ChemForge India | Virtual Chemistry Laboratory</title>
+<title>ChemForge AI | Virtual Lab</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-<div class="logo">ChemForge India</div>
+<div class="logo">
+ChemForge AI
+</div>
 <nav>
-<a href="#features">Features</a>
-<a href="#vision">Our Vision</a>
-<a href="#lab">Virtual Lab</a>
-<a href="#contact">Contact</a>
+<a href="index.html">Home</a>
+<a href="mentor.html">Mentor</a>
+<a href="molecular.html">Molecular View</a>
+<a href="research.html">Research</a>
 </nav>
 </header>
-<section class="hero">
-<div class="hero-text">
-<h1>India's Intelligent Virtual Chemistry Laboratory</h1>
-<p>ChemForge India is an intelligent virtual chemistry laboratory that enables students to safely perform experiments, visualize reactions, understand concepts, and learn through interactive simulations powered by artificial intelligence.</p>
-<button onclick="startLab()">Launch Virtual Lab</button>
-</div>
-<div class="molecule">
-<div class="atom a1">H</div>
-<div class="atom a2">O</div>
-<div class="atom a3">H</div>
-</div>
-</section>
-<section id="vision">
-<h2>Our Vision</h2>
-<p>ChemForge India goes beyond traditional virtual laboratories by combining interactive simulations, intelligent guidance, and visual learning. Our mission is to make chemistry safer, easier to understand, and more engaging for every student.</p>
-</section>
-<section id="features">
-<h2>Key Features</h2>
-
-<div class="cards">
-<div class="card"><h3>AI Lab Assistant</h3><p>Students can ask questions about failed
-experiments. The AI analyses possible issues such as incorrect concentration, temperature or
-procedure and provides explanations.</p></div>
-<div class="card"><h3>Experiment Designer</h3><p>Students describe what they want to
-create or test. ChemForge generates suitable chemicals, equipment, safety measures and a
-step-by-step virtual procedure.</p></div>
-<div class="card"><h3>Molecular Visualizer</h3><p>Understand reactions at the
-molecular level by observing atoms, bonds and energy changes during experiments.</p></div>
-<div class="card"><h3>Smart Error Detection</h3><p>The system identifies common
-chemistry misconceptions and explains the correct scientific reasoning behind them.</p></div>
-<div class="card"><h3>Predictive Simulation</h3><p>Students can modify conditions like
-temperature, concentration and reactants to explore possible outcomes.</p></div>
-<div class="card"><h3>Reaction Explorer</h3><p>Students can search for reactions based on
-their goals, compare different approaches and test ideas virtually.</p></div>
-<div class="card"><h3>Viva Practice</h3><p>An adaptive viva system asks questions
-based on student performance and helps improve understanding.</p></div>
-<div class="card"><h3>Teacher Dashboard</h3><p>Teachers can view student progress,
-common mistakes, learning gaps and experiment activity.</p></div>
-</div>
-</section>
-<section id="lab">
-<h2>Try A Virtual Experiment</h2>
+<section>
+<h2>Virtual Chemistry Laboratory</h2>
+<p>
+Pick an experiment, run it, and see what actually happens — no
+Bunsen burner required.
+</p>
 <div class="lab-box">
-<h3>Experiment Generator</h3>
-<p>Select an experiment to begin.</p>
-<button onclick="experiment()">Generate</button>
-<p id="output"></p>
+<h3>Experiment Builder</h3>
+<label>
+What do you want to try?
+</label>
+<br><br>
+<input id="experimentInput"
+placeholder="Example: Prepare oxygen gas">
+<br><br>
+<button onclick="generateExperiment()">
+Generate Experiment
+</button>
+<div id="experimentOutput"></div>
 </div>
 </section>
-<footer id="contact">
+<section>
+<h2>Available Simulation Tools</h2>
+<div class="cards">
+
+<div class="card">
+<h3>Chemical Setup</h3>
+<p>
+Pick your chemicals and get a feel for how they behave before you
+actually mix anything.
+</p>
+</div>
+<div class="card">
+<h3>Safety Assistant</h3>
+<p>
+Quick rundown of what to watch out for before you start handling anything.
+</p>
+</div>
+<div class="card">
+<h3>Reaction Analysis</h3>
+<p>
+What got made, what you'd actually see, and why it happened that way.
+</p>
+</div>
+</div>
+</section>
+<footer>
 <h3>ChemForge AI</h3>
-<p>Empowering the next generation of scientists through intelligent virtual experimentation.</p>
-<p>© 2026 ChemForge India</p>
+<p>
+A chemistry lab you can run from your laptop.
+</p>
 </footer>
 <script>
-function startLab() {
-alert("Welcome to ChemForge India!");
-}
-function experiment() {
-document.getElementById("output").innerHTML = `
-
-<b>Experiment:</b> Experiment Successfully Generated<br><br>
-<b>Required Chemicals:</b><br>
+function generateExperiment(){
+let input=document.getElementById("experimentInput").value.toLowerCase();
+let output=document.getElementById("experimentOutput");
+if(input.includes("oxygen")){
+output.innerHTML=`
+<h3>Preparation of Oxygen Gas</h3>
+<b>Chemicals:</b><br>
 Hydrogen Peroxide<br>
-Manganese Dioxide Catalyst<br><br>
-<b>Required Apparatus:</b><br>
+Manganese Dioxide Catalyst
+<br><br>
+<b>Apparatus:</b><br>
 Conical Flask<br>
-Delivery Tube<br><br>
+Delivery Tube<br>
+Gas Collection Setup
+<br><br>
+<b>Procedure:</b><br>
+
+1. Place manganese dioxide catalyst in flask.<br>
+2. Add hydrogen peroxide solution.<br>
+3. Collect oxygen gas released.
+<br><br>
+<b>Observation:</b><br>
+Bubbles of oxygen gas are produced.
+<br><br>
 <b>Safety:</b><br>
-Use safety equipment and handle chemicals carefully.
+Use protective equipment and handle chemicals carefully.
 `;
+}
+else if(input.includes("carbon dioxide")){
+output.innerHTML=`
+<h3>Production of Carbon Dioxide</h3>
+<b>Chemicals:</b><br>
+Calcium Carbonate<br>
+Dilute Hydrochloric Acid
+<br><br>
+<b>Reaction:</b><br>
+CaCO3 + 2HCl → CaCl2 + H2O + CO2
+<br><br>
+<b>Observation:</b><br>
+Effervescence due to carbon dioxide gas.
+`;
+}
+else{
+output.innerHTML=`
+<h3>Experiment Not Found</h3>
+<p>
+Try searching for experiments like:
+<br>
+- Prepare oxygen gas
+<br>
+- Produce carbon dioxide
+</p>
+`;
+}
 }
 </script>
 </body>
