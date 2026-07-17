@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ChemForge AI</title>
-
+<title>ChemForge India | Virtual Chemistry Laboratory</title>
 <link rel="stylesheet" href="style.css">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
-
+<header>
+<div class="logo">ChemForge India</div>
 <nav>
-
-<h1>ChemForge AI</h1>
-
-<ul>
-
-<li>Home</li>
-<li>Experiments</li>
-<li>AI Mentor</li>
-<li>Dashboard</li>
-
-</ul>
-
-<button>Launch Lab</button>
-
+<a href="#features">Features</a>
+<a href="#vision">Our Vision</a>
+<a href="#lab">Virtual Lab</a>
+<a href="#contact">Contact</a>
 </nav>
-
+</header>
 <section class="hero">
-
 <div class="hero-text">
-
-<h2>The Future of Chemistry Learning</h2>
-
-<p>
-
-Experiment.
-
-Discover.
-
-Understand.
-
-Powered by Artificial Intelligence.
-
-</p>
-
-<div class="buttons">
-
-<button class="primary">
-
-Start Experiment
-
-</button>
-
-<button class="secondary">
-
-AI Mentor
-
-</button>
-
+<h1>India's Intelligent Virtual Chemistry Laboratory</h1>
+<p>ChemForge India is an intelligent virtual chemistry laboratory that enables students to safely perform experiments, visualize reactions, understand concepts, and learn through interactive simulations powered by artificial intelligence.</p>
+<button onclick="startLab()">Launch Virtual Lab</button>
 </div>
-
+<div class="molecule">
+<div class="atom a1">H</div>
+<div class="atom a2">O</div>
+<div class="atom a3">H</div>
 </div>
-
-<div class="hero-image">
-
-🧪
-
-</div>
-
 </section>
+<section id="vision">
+<h2>Our Vision</h2>
+<p>ChemForge India goes beyond traditional virtual laboratories by combining interactive simulations, intelligent guidance, and visual learning. Our mission is to make chemistry safer, easier to understand, and more engaging for every student.</p>
+</section>
+<section id="features">
+<h2>Key Features</h2>
 
-<script src="script.js"></script>
+<div class="cards">
+<div class="card"><h3>AI Lab Assistant</h3><p>Students can ask questions about failed
+experiments. The AI analyses possible issues such as incorrect concentration, temperature or
+procedure and provides explanations.</p></div>
+<div class="card"><h3>Experiment Designer</h3><p>Students describe what they want to
+create or test. ChemForge generates suitable chemicals, equipment, safety measures and a
+step-by-step virtual procedure.</p></div>
+<div class="card"><h3>Molecular Visualizer</h3><p>Understand reactions at the
+molecular level by observing atoms, bonds and energy changes during experiments.</p></div>
+<div class="card"><h3>Smart Error Detection</h3><p>The system identifies common
+chemistry misconceptions and explains the correct scientific reasoning behind them.</p></div>
+<div class="card"><h3>Predictive Simulation</h3><p>Students can modify conditions like
+temperature, concentration and reactants to explore possible outcomes.</p></div>
+<div class="card"><h3>Reaction Explorer</h3><p>Students can search for reactions based on
+their goals, compare different approaches and test ideas virtually.</p></div>
+<div class="card"><h3>Viva Practice</h3><p>An adaptive viva system asks questions
+based on student performance and helps improve understanding.</p></div>
+<div class="card"><h3>Teacher Dashboard</h3><p>Teachers can view student progress,
+common mistakes, learning gaps and experiment activity.</p></div>
+</div>
+</section>
+<section id="lab">
+<h2>Try A Virtual Experiment</h2>
+<div class="lab-box">
+<h3>Experiment Generator</h3>
+<p>Select an experiment to begin.</p>
+<button onclick="experiment()">Generate</button>
+<p id="output"></p>
+</div>
+</section>
+<footer id="contact">
+<h3>ChemForge AI</h3>
+<p>Empowering the next generation of scientists through intelligent virtual experimentation.</p>
+<p>© 2026 ChemForge India</p>
+</footer>
+<script>
+function startLab() {
+alert("Welcome to ChemForge India!");
+}
+function experiment() {
+document.getElementById("output").innerHTML = `
 
+<b>Experiment:</b> Experiment Successfully Generated<br><br>
+<b>Required Chemicals:</b><br>
+Hydrogen Peroxide<br>
+Manganese Dioxide Catalyst<br><br>
+<b>Required Apparatus:</b><br>
+Conical Flask<br>
+Delivery Tube<br><br>
+<b>Safety:</b><br>
+Use safety equipment and handle chemicals carefully.
+`;
+}
+</script>
 </body>
 </html>
