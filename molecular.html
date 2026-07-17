@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemForge AI | Research Mode</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">
+ChemForge AI
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="lab.html">Lab</a>
+<a href="mentor.html">Mentor</a>
+<a href="molecular.html">Molecular</a>
+<a href="viva.html">Viva</a>
+</nav>
+</header>
+<section>
+<h2>AI Research Mode</h2>
+<p>
+Say what you're trying to produce, and it'll pull up a few ways to
+get there — with the trade-offs, not just the steps.
+</p>
+<div class="lab-box">
+<h3>What do you want to produce?</h3>
+<input id="researchInput"
+placeholder="Example: Reaction that produces CO2">
+<br><br>
+<button onclick="findReaction()">
+Search Reactions
+</button>
+<div id="researchOutput"></div>
+</div>
+</section>
+<section>
+<h2>Explore Chemistry Like A Researcher</h2>
+<div class="cards">
+<div class="card">
+<h3>Reaction Discovery</h3>
+<p>
+
+There's usually more than one way to get the same product. This surfaces the others.
+</p>
+</div>
+<div class="card">
+<h3>Comparison</h3>
+<p>
+Which option's safer, which one's faster, which one you'd actually use outside a classroom.
+</p>
+</div>
+<div class="card">
+<h3>Virtual Testing</h3>
+<p>
+Try it here first, before you're standing over a real flask.
+</p>
+</div>
+</div>
+</section>
+<footer>
+<h3>ChemForge AI</h3>
+<p>
+For when "because the textbook said so" isn't a good enough answer.
+</p>
+</footer>
+<script>
+function findReaction(){
+let input=
+document.getElementById("researchInput")
+.value
+.toLowerCase();
+let output=
+document.getElementById("researchOutput");
+if(input.includes("co2") || input.includes("carbon dioxide")){
+output.innerHTML=
+`
+<h3>Possible Reactions Found</h3>
+<b>Option 1:</b><br>
+Calcium Carbonate + Hydrochloric Acid
+<br><br>
+Reaction:
+<br>
+CaCO3 + 2HCl → CaCl2 + H2O + CO2
+<br><br>
+Advantages:
+<br>
+
+• Produces carbon dioxide quickly
+<br>
+• Easy to observe
+<br><br>
+Limitations:
+<br>
+• Requires acid handling
+<br><br><br>
+<b>Option 2:</b><br>
+Baking Soda + Vinegar
+<br><br>
+Advantages:
+<br>
+• Safer for demonstrations
+<br>
+• Easily available materials
+<br><br>
+Limitations:
+<br>
+• Produces less concentrated CO2
+`;
+}
+else if(input.includes("oxygen")){
+output.innerHTML=
+`
+<h3>Possible Reaction Found</h3>
+<b>Hydrogen Peroxide Decomposition</b>
+<br><br>
+Reaction:
+<br>
+2H2O2 → 2H2O + O2
+<br><br>
+Advantages:
+<br>
+• Simple laboratory preparation
+<br>
+• Catalyst improves reaction speed
+<br><br>
+Catalyst:
+<br>
+Manganese Dioxide
+`;
+}
+else{
+
+output.innerHTML=
+`
+<h3>No Direct Match Found</h3>
+<p>
+Try searching:
+<br><br>
+• Produce carbon dioxide
+<br>
+• Prepare oxygen
+<br>
+• Create hydrogen gas
+</p>
+`;
+}
+}
+</script>
+</body>
+</html>
