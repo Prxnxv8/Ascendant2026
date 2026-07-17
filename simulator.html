@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemForge AI | Lab Mentor</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">
+ChemForge AI
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="simulator.html">Virtual Lab</a>
+<a href="molecular.html">Molecular View</a>
+<a href="research.html">Research</a>
+</nav>
+</header>
+<section>
+<h2>AI Lab Mentor</h2>
+<p>
+Something not add up? Tell it what happened and it'll take a guess at
+where things went wrong.
+</p>
+<div class="lab-box">
+<h3>Ask Your Chemistry Question</h3>
+<input id="problem"
+placeholder="Example: Why did my reaction fail?">
+<br><br>
+<button onclick="analyseProblem()">
+Analyse Problem
+</button>
+<div id="mentorOutput"></div>
+</div>
+</section>
+<section>
+<h2>How The AI Helps</h2>
+<div class="cards">
+<div class="card">
+<h3>Temperature Check</h3>
+<p>
+Some reactions barely work unless you get the heat right — this
 
+looks at whether that was the problem.
+</p>
+</div>
+<div class="card">
+<h3>Concentration Analysis</h3>
+<p>
+Too much or too little of something can throw the whole reaction off.
+Worth ruling out.
+</p>
+</div>
+<div class="card">
+<h3>Procedure Review</h3>
+<p>
+Sometimes it's just the order things got mixed in. This checks for that too.
+</p>
+</div>
+</div>
+</section>
+<footer>
+<h3>ChemForge AI</h3>
+<p>
+Someone to ask when the reaction doesn't behave.
+</p>
+</footer>
+<script>
+function analyseProblem(){
+let problem=document
+.getElementById("problem")
+.value
+.toLowerCase();
+let result=document
+.getElementById("mentorOutput");
+if(problem.includes("temperature")){
+result.innerHTML=`
+<h3>Possible Issue Found</h3>
+<p>
+The reaction may have failed because the temperature was not suitable.
+Some reactions require heating while others work better at lower temperatures.
+</p>
+`;
+}
+else if(problem.includes("concentration")){
+result.innerHTML=`
+<h3>Possible Issue Found</h3>
+
+<p>
+The concentration of reactants may have affected the reaction rate or product formation.
+Try checking the amount of chemicals used.
+</p>
+`;
+}
+else if(problem.includes("mix") || problem.includes("order")){
+result.innerHTML=`
+<h3>Possible Issue Found</h3>
+<p>
+The order of mixing chemicals can affect the reaction.
+Review the experimental procedure and try again.
+</p>
+`;
+}
+else if(problem.includes("copper")){
+result.innerHTML=`
+<h3>Concept Correction</h3>
+<p>
+Copper does not melt during oxidation reactions.
+It reacts with oxygen to form copper oxide.
+</p>
+`;
+}
+else{
+result.innerHTML=`
+<h3>General Analysis</h3>
+<p>
+Check these factors:
+<br><br>
+- Chemical quantities
+<br>
+- Temperature
+<br>
+- Concentration
+<br>
+- Apparatus setup
+<br>
+- Reaction procedure
+</p>
+`;
+}
+}
+</script>
+
+</body>
+</html>
