@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemForge AI | Viva Examiner</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">
+ChemForge AI
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="lab.html">Lab</a>
+<a href="research.html">Research</a>
+<a href="dashboard.html">Dashboard</a>
+</nav>
+</header>
+<section>
+<h2>AI Viva Examiner</h2>
+<p>
+A few questions, one at a time — it pays attention to what you get
+wrong, not just whether you got it wrong.
+</p>
+<div class="lab-box">
+<h3 id="question">
+Press start to begin your viva
+</h3>
+<input id="answer"
+placeholder="Enter your answer">
+<br><br>
+<button onclick="checkAnswer()">
+Submit Answer
+</button>
+<button onclick="nextQuestion()">
+Next Question
+</button>
+<div id="result"></div>
+</div>
+</section>
+<section>
+<h2>Viva Features</h2>
+
+<div class="cards">
+<div class="card">
+<h3>Adaptive Questions</h3>
+<p>
+Gets harder or easier depending on how you're doing, not a fixed set every time.
+</p>
+</div>
+<div class="card">
+<h3>Concept Analysis</h3>
+<p>
+Notices which topics keep tripping you up so you know what to actually go back and study.
+</p>
+</div>
+<div class="card">
+<h3>Performance Report</h3>
+<p>
+A straight-up summary at the end instead of just a score.
+</p>
+</div>
+</div>
+</section>
+<footer>
+<h3>ChemForge AI</h3>
+<p>
+Like an oral exam, minus the nerves.
+</p>
+</footer>
+<script>
+let questions=[
+{
+q:"Why is manganese dioxide used during preparation of oxygen?",
+a:"catalyst"
+},
+{
+q:"What happens to atoms during a chemical reaction?",
+a:"rearranged"
+},
+{
+q:"Why do we balance chemical equations?",
+a:"conservation"
+},
+{
+q:"What is oxidation?",
+a:"loss of electrons"
+
+},
+{
+q:"Why does reaction rate increase with temperature?",
+a:"collision"
+}
+];
+let current=0;
+let score=0;
+window.onload=function(){
+showQuestion();
+}
+function showQuestion(){
+document.getElementById("question").innerHTML=
+questions[current].q;
+}
+function nextQuestion(){
+current++;
+if(current>=questions.length){
+document.getElementById("question").innerHTML=
+"Viva Completed";
+document.getElementById("result").innerHTML=
+"Final Score: "+score+"/"+questions.length;
+return;
+}
+document.getElementById("answer").value="";
+showQuestion();
+}
+function checkAnswer(){
+let userAnswer=
+document.getElementById("answer")
+.value
+.toLowerCase();
+let correct=
+questions[current].a;
+if(userAnswer.includes(correct)){
+score++;
+document.getElementById("result").innerHTML=
+"Correct. Good understanding!";
+}
+else{
+document.getElementById("result").innerHTML=
+"Review this concept and try understanding the reason behind it.";
+}
+}
+
+</script>
+</body>
+</html>
