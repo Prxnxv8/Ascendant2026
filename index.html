@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ChemForge India | AI-Powered Virtual Chemistry Lab</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="logo">
+ChemForge India
+</div>
+<nav>
+<a href="index.html">Home</a>
+<a href="mentor.html">Mentor</a>
+<a href="molecular.html">Molecular View</a>
+<a href="research.html">Research</a>
+</nav>
+</header>
+<section>
+<h2>AI-Powered Virtual Chemistry Lab</h2>
+<p>
+Perform safe chemistry experiments virtually, visualize molecular reactions, receive AI-powered guidance, and prepare for practical exams—all from one platform.
+</p>
+<div class="lab-box">
+<h3>Create Your Virtual Experiment</h3>
+<label>
+Enter an experiment or chemical reaction
+</label>
+<br><br>
+<input id="experimentInput"
+placeholder="Example: Prepare oxygen gas">
+<br><br>
+<button onclick="generateExperiment()">
+Generate Simulation
+</button>
+<div id="experimentOutput"></div>
+</div>
+</section>
+<section>
+<h2>Available Simulation Tools</h2>
+<div class="cards">
+
+<div class="card">
+<h3>Virtual Lab</h3>
+<p>
+Build and perform chemistry experiments safely using AI-guided virtual simulations.
+</p>
+</div>
+<div class="card">
+<h3>AI Safety Assistant</h3>
+<p>
+Receive instant warnings, precautions, and lab safety recommendations before every experiment.
+</p>
+</div>
+<div class="card">
+<h3>Reaction Analysis</h3>
+<p>
+Understand reaction products, observations, balanced equations, and scientific explanations instantly.
+</p>
+</div>
+</div>
+</section>
+<footer>
+<h3>ChemForge India</h3>
+<p>
+Empowering every student with accessible, AI-driven chemistry education.
+</p>
+</footer>
+<script>
+function generateExperiment(){
+let input=document.getElementById("experimentInput").value.toLowerCase();
+let output=document.getElementById("experimentOutput");
+if(input.includes("oxygen")){
+output.innerHTML=`
+<h3>Preparation of Oxygen Gas</h3>
+<b>Chemicals:</b><br>
+Hydrogen Peroxide<br>
+Manganese Dioxide Catalyst
+<br><br>
+<b>Apparatus:</b><br>
+Conical Flask<br>
+Delivery Tube<br>
+Gas Collection Setup
+<br><br>
+<b>Procedure:</b><br>
+
+1. Place manganese dioxide catalyst in flask.<br>
+2. Add hydrogen peroxide solution.<br>
+3. Collect oxygen gas released.
+<br><br>
+<b>Observation:</b><br>
+Bubbles of oxygen gas are produced.
+<br><br>
+<b>Safety:</b><br>
+Use protective equipment and handle chemicals carefully.
+`;
+}
+else if(input.includes("carbon dioxide")){
+output.innerHTML=`
+<h3>Production of Carbon Dioxide</h3>
+<b>Chemicals:</b><br>
+Calcium Carbonate<br>
+Dilute Hydrochloric Acid
+<br><br>
+<b>Reaction:</b><br>
+CaCO3 + 2HCl → CaCl2 + H2O + CO2
+<br><br>
+<b>Observation:</b><br>
+Effervescence due to carbon dioxide gas.
+`;
+}
+else{
+output.innerHTML=`
+<h3>Experiment Not Found</h3>
+<p>
+Try searching for experiments like:
+<br>
+- Prepare oxygen gas
+<br>
+- Produce carbon dioxide
+</p>
+`;
+}
+}
+</script>
+</body>
+</html>
