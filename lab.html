@@ -24,18 +24,75 @@ ChemForge India
 Perform safe chemistry experiments virtually, visualize molecular reactions, receive AI-powered guidance, and prepare for practical exams—all from one platform.
 </p>
 <div class="lab-box">
-<h3>Create Your Virtual Experiment</h3>
-<label>
-Enter an experiment or chemical reaction
-</label>
-<br><br>
-<input id="experimentInput"
-placeholder="Example: Prepare oxygen gas">
-<br><br>
-<button onclick="generateExperiment()">
-Generate Simulation
+
+<h3>⚗️ AI Reaction Simulator</h3>
+
+<div class="reactionRow">
+
+<div class="chemicalBox">
+
+<label>Reactant A</label>
+
+<select id="reactantA">
+<option>Hydrogen (H₂)</option>
+<option>Carbon (C)</option>
+<option>Copper (Cu)</option>
+</select>
+
+</div>
+
+<div class="plusIcon">
++
+</div>
+
+<div class="chemicalBox">
+
+<label>Reactant B</label>
+
+<select id="reactantB">
+<option>Oxygen (O₂)</option>
+<option>Oxygen (O₂)</option>
+<option>Oxygen (O₂)</option>
+</select>
+
+</div>
+
+</div>
+
+<br>
+
+<button onclick="showReaction()">
+
+▶ Launch AI Simulation
+
 </button>
-<div id="experimentOutput"></div>
+
+<br><br>
+
+<div class="simulationArea">
+
+<canvas
+id="moleculeCanvas"
+width="700"
+height="320">
+</canvas>
+
+<div class="progressBar">
+
+<div id="progressFill"></div>
+
+</div>
+
+<h3 id="simulationStatus">
+
+Ready to Simulate
+
+</h3>
+
+<div id="reactionText"></div>
+
+</div>
+
 </div>
 </section>
 <section>
