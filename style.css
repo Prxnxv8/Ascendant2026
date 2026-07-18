@@ -223,3 +223,33 @@ button{
 }
 
 }
+
+#beaker{
+font-size:90px;
+transition:.4s;
+margin:20px 0;
+}
+
+#reactionResult{
+margin-top:20px;
+background:#07111f;
+padding:20px;
+border-radius:10px;
+border:1px solid #20364d;
+}
+
+select{
+width:100%;
+max-width:350px;
+padding:12px;
+background:#0d1b2a;
+color:white;
+border:1px solid #20364d;
+border-radius:8px;
+font-size:16px;
+}
+
+select:focus{
+outline:none;
+border-color:#5ddcff;
+}
