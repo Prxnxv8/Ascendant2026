@@ -104,9 +104,9 @@ Developed for **Ascendant 2026 Hackathon**
 Team Members:
 
 - Ishaan
-- Lakshit
+- Avanindra
 - Pranav
-- Indrajay
+- Anchit
 
 ---
 
