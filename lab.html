@@ -126,60 +126,161 @@ Empowering every student with accessible, AI-driven chemistry education.
 </p>
 </footer>
 <script>
-function generateExperiment(){
-let input=document.getElementById("experimentInput").value.toLowerCase();
-let output=document.getElementById("experimentOutput");
-if(input.includes("oxygen")){
-output.innerHTML=`
-<h3>Preparation of Oxygen Gas</h3>
-<b>Chemicals:</b><br>
-Hydrogen Peroxide<br>
-Manganese Dioxide Catalyst
-<br><br>
-<b>Apparatus:</b><br>
-Conical Flask<br>
-Delivery Tube<br>
-Gas Collection Setup
-<br><br>
-<b>Procedure:</b><br>
+let canvas = document.getElementById("moleculeCanvas");
+let ctx = canvas.getContext("2d");
 
-1. Place manganese dioxide catalyst in flask.<br>
-2. Add hydrogen peroxide solution.<br>
-3. Collect oxygen gas released.
-<br><br>
-<b>Observation:</b><br>
-Bubbles of oxygen gas are produced.
-<br><br>
-<b>Safety:</b><br>
-Use protective equipment and handle chemicals carefully.
-`;
+function drawAtom(x,y,label,size){
+
+ctx.beginPath();
+ctx.arc(x,y,size,0,Math.PI*2);
+
+ctx.fillStyle="#0ea5e9";
+ctx.fill();
+
+ctx.fillStyle="white";
+ctx.font="20px Arial";
+ctx.fillText(label,x-10,y+6);
+
 }
-else if(input.includes("carbon dioxide")){
-output.innerHTML=`
-<h3>Production of Carbon Dioxide</h3>
-<b>Chemicals:</b><br>
-Calcium Carbonate<br>
-Dilute Hydrochloric Acid
-<br><br>
-<b>Reaction:</b><br>
-CaCO3 + 2HCl → CaCl2 + H2O + CO2
-<br><br>
-<b>Observation:</b><br>
-Effervescence due to carbon dioxide gas.
-`;
+
+function showReaction(){
+
+let reaction=document.getElementById("reactantA").value;
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+document.getElementById("reactionText").innerHTML="";
+
+let progress=document.getElementById("progressFill");
+
+let status=document.getElementById("simulationStatus");
+
+progress.style.width="0%";
+
+let value=0;
+
+let timer=setInterval(function(){
+
+value+=2;
+
+progress.style.width=value+"%";
+
+if(value<20){
+
+status.innerHTML="🔍 Identifying Reactants";
+
 }
+
+else if(value<40){
+
+status.innerHTML="⚖ Balancing Equation";
+
+}
+
+else if(value<60){
+
+status.innerHTML="⚛ Building Molecular Model";
+
+}
+
+else if(value<80){
+
+status.innerHTML="🧪 Running Simulation";
+
+}
+
 else{
-output.innerHTML=`
-<h3>Experiment Not Found</h3>
-<p>
-Try searching for experiments like:
-<br>
-- Prepare oxygen gas
-<br>
-- Produce carbon dioxide
-</p>
-`;
+
+status.innerHTML="✅ Generating Results";
+
 }
+
+if(value>=100){
+
+clearInterval(timer);
+
+if(reaction=="Hydrogen (H₂)"){
+
+drawAtom(180,170,"H",30);
+
+drawAtom(350,100,"O",40);
+
+drawAtom(520,170,"H",30);
+
+ctx.beginPath();
+
+ctx.moveTo(205,160);
+
+ctx.lineTo(325,115);
+
+ctx.lineTo(495,160);
+
+ctx.strokeStyle="#00d4ff";
+
+ctx.lineWidth=5;
+
+ctx.stroke();
+
+document.getElementById("reactionText").innerHTML=`
+
+<h2>💧 Water Formation</h2>
+
+<b>Balanced Equation</b><br>
+
+2H₂ + O₂ → 2H₂O
+
+<br><br>
+
+<b>Observation</b><br>
+
+Hydrogen burns in oxygen producing water.
+
+`;
+
+}
+
+else if(reaction=="Carbon (C)"){
+
+drawAtom(250,160,"C",40);
+
+drawAtom(380,100,"O",35);
+
+drawAtom(510,160,"O",35);
+
+document.getElementById("reactionText").innerHTML=`
+
+<h2>🌍 Carbon Dioxide</h2>
+
+<b>Balanced Equation</b><br>
+
+C + O₂ → CO₂
+
+`;
+
+}
+
+else{
+
+drawAtom(270,160,"Cu",42);
+
+drawAtom(470,160,"O",38);
+
+document.getElementById("reactionText").innerHTML=`
+
+<h2>🟤 Copper Oxide</h2>
+
+<b>Balanced Equation</b><br>
+
+2Cu + O₂ → 2CuO
+
+`;
+
+}
+
+}
+
+},40);
+
 }
 </script>
 </body>
