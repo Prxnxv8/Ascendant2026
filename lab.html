@@ -65,6 +65,71 @@ Sometimes it's just the order things got mixed in. This checks for that too.
 <p>
 Someone to ask when the reaction doesn't behave.
 </p>
+<section>
+
+<h2>Interactive Reaction Simulator</h2>
+
+<p>
+Choose two chemicals and observe the predicted reaction. This simulation is intended for learning and demonstrates common school-level reactions.
+</p>
+
+<div class="lab-box">
+
+<label>Reactant 1</label>
+
+<br><br>
+
+<select id="chemical1">
+
+<option>Hydrochloric Acid</option>
+<option>Sodium Hydroxide</option>
+<option>Copper Sulphate</option>
+<option>Iron Nail</option>
+<option>Zinc</option>
+
+</select>
+
+<br><br>
+
+<label>Reactant 2</label>
+
+<br><br>
+
+<select id="chemical2">
+
+<option>Sodium Hydroxide</option>
+<option>Hydrochloric Acid</option>
+<option>Iron Nail</option>
+<option>Copper Sulphate</option>
+<option>Dilute Sulphuric Acid</option>
+
+</select>
+
+<br><br>
+
+<button onclick="runSimulation()">
+Start Simulation
+</button>
+
+<br><br>
+
+<div id="simulationArea">
+
+<h3>Reaction Chamber</h3>
+
+<div id="beaker">
+🧪
+</div>
+
+<p id="reactionResult">
+Choose two chemicals and begin the simulation.
+</p>
+
+</div>
+
+</div>
+
+</section>
 </footer>
 <script>
 function analyseProblem(){
@@ -129,6 +194,54 @@ Check these factors:
 </p>
 `;
 }
+}
+function runSimulation(){
+
+const c1=document.getElementById("chemical1").value;
+const c2=document.getElementById("chemical2").value;
+
+const result=document.getElementById("reactionResult");
+const beaker=document.getElementById("beaker");
+
+beaker.style.transform="scale(1.15)";
+
+setTimeout(()=>{
+beaker.style.transform="scale(1)";
+},400);
+
+if(
+(c1==="Hydrochloric Acid" && c2==="Sodium Hydroxide") ||
+(c2==="Hydrochloric Acid" && c1==="Sodium Hydroxide")
+){
+
+result.innerHTML="<b>Neutralization Reaction</b><br>Salt and water are formed.<br><br>Observation: Heat is released.";
+
+}
+
+else if(
+(c1==="Copper Sulphate" && c2==="Iron Nail") ||
+(c2==="Copper Sulphate" && c1==="Iron Nail")
+){
+
+result.innerHTML="<b>Displacement Reaction</b><br>Iron displaces copper from copper sulphate.<br><br>Observation: Brown copper coating appears.";
+
+}
+
+else if(
+(c1==="Zinc" && c2==="Dilute Sulphuric Acid") ||
+(c2==="Zinc" && c1==="Dilute Sulphuric Acid")
+){
+
+result.innerHTML="<b>Metal + Acid Reaction</b><br>Hydrogen gas is produced.<br><br>Observation: Bubbling is seen.";
+
+}
+
+else{
+
+result.innerHTML="<b>No significant reaction found.</b><br>This pair does not produce a common school-level reaction.";
+
+}
+
 }
 </script>
 
